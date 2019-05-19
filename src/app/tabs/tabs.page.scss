@@ -1,1 +1,5 @@
-
+ion-tab-bar ion-tab-button[aria-selected=true] {
+    padding: 0;
+    border: 1px solid transparent;
+    border-top: 3px solid #E74C3C;
+}

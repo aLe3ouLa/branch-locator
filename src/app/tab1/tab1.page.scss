@@ -2,3 +2,91 @@
   max-height: 35vh;
   overflow: hidden;
 }
+
+.new-background-color {
+  --background: #0c6db2;
+  --color: #fff;
+}
+
+ion-title {
+  text-align: center;
+}
+
+.map {
+  height: 100%;
+  width: 100%;
+}
+
+.action-buttons-container {
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+}
+
+.info-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+
+#infowindow {
+  display: none;
+  height: 150px;
+  width: 95%;
+  margin: 0 auto;
+  margin: .5rem;
+  padding: 1rem;
+  border: 1px solid transparent;
+  border-top: 3px solid #e74c3c;
+  box-shadow: 0 1px 1px #cccccc;
+  background-color: #fff;
+}
+
+.info-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .5rem;
+}
+
+.info-name {
+  font-weight: bold;
+}
+
+.info-body {
+  font-size: .8rem;
+}
+
+.info-status {
+  color: white;
+  background-color: green;
+  padding: 0.5rem;
+}
+
+.info-details {
+  text-align: center;
+}
+
+.info-details a {
+  color: blue !important;
+  text-decoration: none;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.fa-map-marker-alt {
+  color: grey;
+  font-size: .8rem;
+}
+
+.locate-user {
+  margin-bottom: .5rem;
+}
