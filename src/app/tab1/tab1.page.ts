@@ -62,6 +62,7 @@ export class Tab1Page implements OnInit, AfterContentInit {
   }
   ngOnInit(): void {
     this.geolocation.getCurrentPosition().then((resp) => {
+      /** The current geolocation of user */
       this.currentUserLat = resp.coords.latitude;
       this.currentUserLng = resp.coords.longitude;
      }).catch((error) => {
@@ -73,12 +74,11 @@ export class Tab1Page implements OnInit, AfterContentInit {
       // data can be a set of coordinates, or an error (if an error occurred).
       this.currentUserLat = data.coords.latitude;
       this.currentUserLng = data.coords.longitude;
-      // data.coords.latitude
-      // data.coords.longitude
      });
   }
 
   addMarker(map: any) {
+    /** Add a marker for each location on the array in the maps */
     let i = 0;
     let marker;
     for (i = 0; i < this.locations.length; i++) {
@@ -92,14 +92,12 @@ export class Tab1Page implements OnInit, AfterContentInit {
         )
       });
 
-      this.addInfoWindow(marker, "", i);
+      this.addInfoWindow(marker, i);
     }
   }
 
-  addInfoWindow(marker, content, i) {
-    // let infoWindow = new google.maps.InfoWindow({
-    //   content: content
-    // });
+  addInfoWindow(marker, i) {
+    /** Make visable the information */
 
     google.maps.event.addListener(marker, "click", () => {
       marker.setIcon(this.locations[i][4]);
@@ -111,13 +109,14 @@ export class Tab1Page implements OnInit, AfterContentInit {
       // infoWindow.open(this.map, marker);
     });
 
-    google.maps.event.addListener(marker, "closeclick", () => {
+    google.maps.event.addListener(marker, "dblclick", () => {
       marker.setIcon(this.locations[i][3]);
       document.getElementById("infoName").style.display = "none";
     });
   }
 
   loadMap() {
+    /** Loads the map */
     const latLng = { lat: 37.9745068, lng: 23.7352651 };
     const mapOptions = {
       center: latLng,
@@ -130,7 +129,8 @@ export class Tab1Page implements OnInit, AfterContentInit {
     this.addMarker(this.map);
   }
 
-  locateUser(map: any) {
+  locateUser() {
+    /** Locate user button -> loads a marker with  the current location*/
     let marker = new google.maps.Marker({
       map: this.map,
       animation: google.maps.Animation.DROP,
